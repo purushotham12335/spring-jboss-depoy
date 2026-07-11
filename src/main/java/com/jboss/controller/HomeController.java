@@ -16,4 +16,5 @@ public class HomeController {
     public String getHome1() {
         return "Welcome Home1";
     }
+
 }
