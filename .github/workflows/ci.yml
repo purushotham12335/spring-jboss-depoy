@@ -35,7 +35,7 @@ jobs:
             -Dsonar.projectKey=purushotham12335_spring-jboss-depoy \
             -Dsonar.organization=purushotham12335 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=${{ secrets.SONAR_SECRETE }}
+            -Dsonar.token=$SONAR_TOKEN
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
