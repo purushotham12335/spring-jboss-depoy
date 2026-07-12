@@ -24,7 +24,7 @@ class HomeControllerTest {
 
     @Test
     void testGetHome1() throws Exception {
-        mockMvc.perform(get("/api/gethom"))
+        mockMvc.perform(get("/api/gethome1"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Welcome Home1"));
     }
