@@ -17,15 +17,25 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Java 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
 
-      - name: Build Project
-        run: mvn clean package
+      - name: Build
+        run: mvn clean verify
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_SECRETE }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=purushotham12335_spring-jboss-depoy \
+            -Dsonar.organization=purushotham12335 \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ secrets.SONAR_SECRETE }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
